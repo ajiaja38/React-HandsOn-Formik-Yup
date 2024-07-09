@@ -1,7 +1,7 @@
 import { FormikProps, useFormik } from "formik";
 import * as yup from "yup";
 
-interface LoginFormProps {
+export interface LoginFormProps {
   username: string;
   password: string;
 }

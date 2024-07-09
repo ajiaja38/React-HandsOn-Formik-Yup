@@ -1,8 +1,10 @@
 import { Box, Button, TextField, Toolbar, Typography } from "@mui/material";
-import useLoginFrom from "../../hooks/useLoginForm";
+import useLoginFrom, { LoginFormProps } from "../../hooks/useLoginForm";
+import React from "react";
+import { FormikProps } from "formik";
 
-const LoginForm = () => {
-  const formik = useLoginFrom();
+const LoginForm: React.FC = (): JSX.Element => {
+  const formik: FormikProps<LoginFormProps> = useLoginFrom();
 
   return (
     <div className="container flex flex-col justify-center items-center mx-auto">
