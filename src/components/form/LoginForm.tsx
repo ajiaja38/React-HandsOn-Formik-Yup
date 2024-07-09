@@ -1,9 +1,14 @@
 import { Box, Button, TextField, Toolbar, Typography } from "@mui/material";
 import * as yup from "yup";
-import { useFormik } from "formik";
+import { FormikProps, useFormik } from "formik";
+
+interface LoginFormProps {
+  username: string;
+  password: string;
+}
 
 const LoginForm = () => {
-  const formik = useFormik({
+  const formik: FormikProps<LoginFormProps> = useFormik<LoginFormProps>({
     initialValues: {
       username: "",
       password: "",
