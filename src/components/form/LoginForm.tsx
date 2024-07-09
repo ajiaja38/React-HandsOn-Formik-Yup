@@ -1,33 +1,8 @@
 import { Box, Button, TextField, Toolbar, Typography } from "@mui/material";
-import * as yup from "yup";
-import { FormikProps, useFormik } from "formik";
-
-interface LoginFormProps {
-  username: string;
-  password: string;
-}
+import useLoginFrom from "../../hooks/useLoginForm";
 
 const LoginForm = () => {
-  const formik: FormikProps<LoginFormProps> = useFormik<LoginFormProps>({
-    initialValues: {
-      username: "",
-      password: "",
-    },
-    validationSchema: yup.object({
-      username: yup.string().required("Username is required"),
-      password: yup
-        .string()
-        .min(8, "Password should be of minimum 8 characters length")
-        .matches(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-          "Password must contain at least one uppercase letter, one lowercase letter, and one number"
-        )
-        .required("Password is required"),
-    }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+  const formik = useLoginFrom();
 
   return (
     <div className="container flex flex-col justify-center items-center mx-auto">
