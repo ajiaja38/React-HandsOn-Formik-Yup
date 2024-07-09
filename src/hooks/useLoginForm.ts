@@ -12,7 +12,7 @@ const useLoginFrom = (): FormikProps<LoginFormProps> => {
       username: "",
       password: "",
     },
-    validationSchema: yup.object({
+    validationSchema: yup.object<LoginFormProps>({
       username: yup
         .string()
         .required("Username is required")
@@ -27,7 +27,7 @@ const useLoginFrom = (): FormikProps<LoginFormProps> => {
         )
         .required("Password is required"),
     }),
-    onSubmit: (values: LoginFormProps) => {
+    onSubmit: (values: LoginFormProps): void => {
       console.log(values);
     },
   });
